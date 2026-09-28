@@ -6,7 +6,7 @@
 
     <groupId>io.github.ashdawngary</groupId>
     <artifactId>reactive-retrofit</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>Reactive Retrofit</name>
     <description>A small Retrofit-style HTTP client for Reactor Mono and Flux contracts.</description>
     <url>https://github.com/ashdawngary/reactive-retrofit</url>

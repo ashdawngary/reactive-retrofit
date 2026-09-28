@@ -47,6 +47,14 @@ coordinates below, replacing the version with the desired release:
 - Spring Boot integration coverage using a lifecycle-managed MockWebServer and injected Retrofit
   client.
 
+## Releases
+
+### 0.1.0 — 2026-09-28
+
+Initial release with Retrofit-native `Mono` and `Flux` adaptation, response and error handling,
+lazy execution and cancellation, scheduler support, JSON-array expansion, and streaming NDJSON and
+server-sent events.
+
 ## Quick start
 
 Define a normal Retrofit interface using `retrofit2.http` annotations:
