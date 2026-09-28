@@ -1,0 +1,36 @@
+name: Compatibility
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reactor:
+    name: Reactor ${{ matrix.reactor }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        reactor: [3.5.20, 3.6.18, 3.7.19, 3.8.7]
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v5
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Verify Reactor ${{ matrix.reactor }}
+        run: >-
+          mvn --batch-mode clean verify dependency:analyze
+          -Dreactor.version=${{ matrix.reactor }}
